@@ -2,5 +2,9 @@
     <string name="app_name">HappyPetsApp</string>
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
-    <string name="title_notifications">Notifications</string>
+    <string name="title_view_publication">Detalles de Publicacion</string>
+    <string name="useranme_place_holder">username</string>
+    <string name="comments_place_holder">Comentarios</string>
+
+
 </resources>

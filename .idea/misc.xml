@@ -7,7 +7,8 @@
         <entry key="..\:/Universidad/Semestre4/Plataformas_Moviles/HappyPets/HappyPets/app/src/main/res/layout/fragment_dashboard.xml" value="0.3625" />
         <entry key="..\:/Universidad/Semestre4/Plataformas_Moviles/HappyPets/HappyPets/app/src/main/res/layout/fragment_home.xml" value="0.3625" />
         <entry key="..\:/Universidad/Semestre4/Plataformas_Moviles/HappyPets/HappyPets/app/src/main/res/layout/fragment_notifications.xml" value="0.3625" />
-        <entry key="..\:/Universidad/Semestre4/Plataformas_Moviles/HappyPets/HappyPets/app/src/main/res/layout/item_publication_layout.xml" value="0.3614583333333333" />
+        <entry key="..\:/Universidad/Semestre4/Plataformas_Moviles/HappyPets/HappyPets/app/src/main/res/layout/fragment_view_publication.xml" value="0.33" />
+        <entry key="..\:/Universidad/Semestre4/Plataformas_Moviles/HappyPets/HappyPets/app/src/main/res/layout/item_publication_layout.xml" value="0.67" />
       </map>
     </option>
   </component>
