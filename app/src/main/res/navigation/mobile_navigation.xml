@@ -7,19 +7,16 @@
 
     <fragment
         android:id="@+id/navigation_home"
-        android:name="com.example.happypetsapp.ui.home.MultiUseRecyclerFragment"
+        android:name="com.example.happypetsapp.ui.home.HomeFragment"
         android:label="@string/title_home"
         tools:layout="@layout/fragment_recycler_multiuse" />
-
     <fragment
-        android:id="@+id/navigation_dashboard"
-        android:name="com.example.happypetsapp.ui.dashboard.DashboardFragment"
-        android:label="@string/title_dashboard"
-        tools:layout="@layout/fragment_view_userpage" />
+        android:id="@+id/navigation_buscar"
+        android:name="com.example.happypetsapp.search.SearchFragment"
+        android:label="@string/title_buscar"
+        tools:layout="@layout/fragment_search"
 
-    <fragment
-        android:id="@+id/navigation_notifications"
-        android:name="com.example.happypetsapp.ui.notifications.NotificationsFragment"
-        android:label="@string/title_notifications"
-        tools:layout="@layout/fragment_view_publication" />
+        />
+
+
 </navigation>

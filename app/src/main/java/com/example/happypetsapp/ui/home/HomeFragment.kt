@@ -7,7 +7,12 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.example.happypetsapp.databinding.FragmentRecyclerMultiuseBinding
 
-class MultiUseRecyclerFragment : Fragment() {
+/*
+* @brief:
+* Clase referente al recycler view que es multiusos, para publicaciones, comentarios, fotos etc
+* @param: int para el modo en donde se ve a emplear, requierodo para que use el adapter que necesita
+* */
+class HomeFragment : Fragment() {
 
     private var _binding: FragmentRecyclerMultiuseBinding? = null
 

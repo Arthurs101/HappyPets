@@ -1,4 +1,4 @@
-package com.example.happypetsapp.ui.notifications
+package com.example.happypetsapp.ui.alerts
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

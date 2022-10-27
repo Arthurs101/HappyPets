@@ -1,10 +1,12 @@
 <resources>
     <string name="app_name">HappyPetsApp</string>
-    <string name="title_home">Home</string>
-    <string name="title_dashboard">Dashboard</string>
+    <string name="title_home">Inicio</string>
+    <string name="title_publicar">Publicar</string>
+    <string name="title_buscar">Buscar</string>
     <string name="title_view_publication">Detalles de Publicacion</string>
+    <string name="title_alertas">Alertas</string>
     <string name="useranme_place_holder">username</string>
     <string name="comments_place_holder">Comentarios</string>
-
+    <string name="hint_search">Buscar Animales,Personas,Lugares</string>
 
 </resources>

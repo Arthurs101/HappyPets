@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.notifications.NotificationsFragment">
+    tools:context=".ui.alerts.NotificationsFragment">
 
     <ImageView
         android:id="@+id/publication_photo"
@@ -55,7 +55,7 @@
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/fragmentContainerView3"
-        android:name="com.example.happypetsapp.ui.home.MultiUseRecyclerFragment"
+        android:name="com.example.happypetsapp.ui.home.HomeFragment"
         android:layout_width="371dp"
         android:layout_height="262dp"
         android:layout_marginTop="32dp"
