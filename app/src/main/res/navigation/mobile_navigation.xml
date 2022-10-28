@@ -17,6 +17,15 @@
         tools:layout="@layout/fragment_search"
 
         />
+    <fragment
+        android:id="@+id/navigation_publicar"
+        android:name="com.example.happypetsapp.Publish.PublishFragment"
+        android:label="@string/title_publicar"
+        android:layout="@layout/fragment_create_publication"/>
+    <fragment
+        android:id="@+id/navigation_alertas"
+        android:name="com.example.happypetsapp.ui.alerts.AlertsFragment"
+        android:label="AlertsFragment" />
 
 
 </navigation>

@@ -10,8 +10,8 @@
     <fragment
         android:id="@+id/FragmetContainerView"
         android:name="androidx.navigation.fragment.NavHostFragment"
-        android:layout_width="384dp"
-        android:layout_height="631dp"
+        android:layout_width="374dp"
+        android:layout_height="656dp"
         android:layout_marginStart="12dp"
         app:defaultNavHost="true"
         app:layout_constraintBottom_toTopOf="@id/nav_view"

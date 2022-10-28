@@ -6,15 +6,16 @@
         <entry key="..\:/Universidad/Semestre4/Plataformas_Moviles/HappyPets/HappyPets/app/src/main/res/layout/activity_loginhandler.xml" value="0.18541666666666667" />
         <entry key="..\:/Universidad/Semestre4/Plataformas_Moviles/HappyPets/HappyPets/app/src/main/res/layout/activity_main.xml" value="0.3625" />
         <entry key="..\:/Universidad/Semestre4/Plataformas_Moviles/HappyPets/HappyPets/app/src/main/res/layout/fragment_breedinformation.xml" value="0.3625" />
+        <entry key="..\:/Universidad/Semestre4/Plataformas_Moviles/HappyPets/HappyPets/app/src/main/res/layout/fragment_create_publication.xml" value="0.3614583333333333" />
         <entry key="..\:/Universidad/Semestre4/Plataformas_Moviles/HappyPets/HappyPets/app/src/main/res/layout/fragment_dashboard.xml" value="0.3625" />
         <entry key="..\:/Universidad/Semestre4/Plataformas_Moviles/HappyPets/HappyPets/app/src/main/res/layout/fragment_home.xml" value="0.3625" />
         <entry key="..\:/Universidad/Semestre4/Plataformas_Moviles/HappyPets/HappyPets/app/src/main/res/layout/fragment_notifications.xml" value="0.3625" />
         <entry key="..\:/Universidad/Semestre4/Plataformas_Moviles/HappyPets/HappyPets/app/src/main/res/layout/fragment_recycler_multiuse.xml" value="0.3625" />
-        <entry key="..\:/Universidad/Semestre4/Plataformas_Moviles/HappyPets/HappyPets/app/src/main/res/layout/fragment_search.xml" value="0.3614583333333333" />
+        <entry key="..\:/Universidad/Semestre4/Plataformas_Moviles/HappyPets/HappyPets/app/src/main/res/layout/fragment_search.xml" value="0.5" />
         <entry key="..\:/Universidad/Semestre4/Plataformas_Moviles/HappyPets/HappyPets/app/src/main/res/layout/fragment_view_publication.xml" value="0.33" />
         <entry key="..\:/Universidad/Semestre4/Plataformas_Moviles/HappyPets/HappyPets/app/src/main/res/layout/fragment_view_userpage.xml" value="0.3625" />
         <entry key="..\:/Universidad/Semestre4/Plataformas_Moviles/HappyPets/HappyPets/app/src/main/res/layout/item_publication_layout.xml" value="0.67" />
-        <entry key="..\:/Universidad/Semestre4/Plataformas_Moviles/HappyPets/HappyPets/app/src/main/res/menu/bottom_nav_menu.xml" value="0.5" />
+        <entry key="..\:/Universidad/Semestre4/Plataformas_Moviles/HappyPets/HappyPets/app/src/main/res/menu/bottom_nav_menu.xml" value="0.42248062015503873" />
       </map>
     </option>
   </component>

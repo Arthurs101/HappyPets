@@ -8,5 +8,7 @@
     <string name="useranme_place_holder">username</string>
     <string name="comments_place_holder">Comentarios</string>
     <string name="hint_search">Buscar Animales,Personas,Lugares</string>
+    <string name ="text_button_publish">Publicar</string>
+    <string name="hint_publish">¿En que piensas? Escribelo aquí </string>
 
 </resources>
