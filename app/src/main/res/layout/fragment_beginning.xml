@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/fondo"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/textViewbegin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/begin"
+        android:textColor="#121111"
+        android:textSize="34sp"
+        android:textStyle="bold" />
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="match_parent"
+        android:layout_height="4dp"
+        android:layout_weight="10"
+        tools:srcCompat="@drawable/logoinicio" />
+
+    <Button
+        android:id="@+id/buttonlog"
+        android:layout_width="356dp"
+        android:layout_height="0dp"
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="25dp"
+        android:layout_marginBottom="5dp"
+        android:layout_weight="2"
+        android:backgroundTint="@color/teal_200"
+        android:fontFamily="sans-serif"
+        android:text="@string/log"
+        android:textColor="#101010"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/button4"
+        android:layout_width="356dp"
+        android:layout_height="0dp"
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="25dp"
+        android:layout_marginBottom="5dp"
+        android:layout_weight="2"
+        android:backgroundTint="@color/teal_200"
+        android:fontFamily="sans-serif"
+        android:text="@string/regis"
+        android:textColor="#000000"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+
+
+</LinearLayout>

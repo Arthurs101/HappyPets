@@ -10,5 +10,19 @@
     <string name="hint_search">Buscar Animales,Personas,Lugares</string>
     <string name ="text_button_publish">Publicar</string>
     <string name="hint_publish">¿En que piensas? Escribelo aquí </string>
+	<string name="user">User</string>
+	<string name="password">Password</string>
+	<string name="login">Login</string>
+	<string name="toreturn">To Return</string>
+	<string name="registrar">Registration</string>
+	<string name="Sec">LOGIN</string>
+	<string name="begin">Beginning</string>
+	<string name="log">Login</string>
+	<string name="regis">check in</string>
+	<string name="registrare">Check in</string>
+	<string name="us">Name</string>
+	<string name="sur">surname</string>
+	<string name="repeat">repeat your password</string>
+	<string name="checkin">Check In</string>
 
 </resources>
