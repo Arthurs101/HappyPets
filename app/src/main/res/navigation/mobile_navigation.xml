@@ -24,6 +24,9 @@
         <argument
             android:name="ShowNavView"
             android:defaultValue="true" />
+        <action
+            android:id="@+id/action_navigation_buscar_to_breedInfoFragment"
+            app:destination="@id/breedInfoFragment" />
     </fragment>
     <fragment
         android:id="@+id/navigation_publicar"
@@ -59,6 +62,9 @@
         <action
             android:id="@+id/action_mainFragment_to_signUpFragmet"
             app:destination="@id/signUpFragmet" />
+        <action
+            android:id="@+id/action_mainFragment_to_navigation_home"
+            app:destination="@id/navigation_home" />
     </fragment>
     <fragment
         android:id="@+id/signUpFragmet"
@@ -75,6 +81,14 @@
         <action
             android:id="@+id/action_loginFragment_to_navigation_home"
             app:destination="@id/navigation_home" />
+    </fragment>
+    <fragment
+        android:id="@+id/breedInfoFragment"
+        android:name="com.example.happypetsapp.search.BreedInfoFragment"
+        android:label="BreedInfoFragment" >
+        <argument
+            android:name="Information"
+            app:argType="com.example.happypetsapp.Services.Api.information.Animal" />
     </fragment>
 
 

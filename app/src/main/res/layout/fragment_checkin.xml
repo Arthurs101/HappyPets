@@ -21,40 +21,40 @@
         android:layout_width="match_parent"
         android:layout_height="10dp"
         android:layout_weight="40"
-        tools:srcCompat="@drawable/registrar" />
+        android:src="@drawable/registrar" />
 
     <EditText
-        android:id="@+id/editTextTextPersonnombree"
+        android:id="@+id/Username"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginLeft="15dp"
         android:layout_marginRight="15dp"
         android:layout_marginBottom="15dp"
         android:layout_weight="9"
+        android:background="@drawable/edt_style"
         android:drawableLeft="@drawable/user4"
         android:drawablePadding="10dp"
-        android:background="@drawable/edt_style"
         android:ems="10"
-        android:inputType="textPersonName"
-        android:text="@string/us" />
+        android:hint="@string/us"
+        android:inputType="textPersonName" />
 
     <EditText
-        android:id="@+id/editTextTextPersonsurname"
+        android:id="@+id/Email"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginLeft="15dp"
         android:layout_marginRight="15dp"
         android:layout_marginBottom="15dp"
         android:layout_weight="9"
-        android:drawableLeft="@drawable/user4"
-        android:drawablePadding="10dp"
         android:background="@drawable/edt_style"
+        android:drawableLeft="@android:drawable/sym_action_email"
+        android:drawablePadding="10dp"
         android:ems="10"
-        android:inputType="textPersonName"
-        android:text="@string/sur" />
+        android:hint="@string/user"
+        android:inputType="textEmailAddress" />
 
     <EditText
-        android:id="@+id/editTextTextPassword"
+        android:id="@+id/password"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginLeft="15dp"
@@ -70,7 +70,7 @@
         android:textStyle="bold" />
 
     <EditText
-        android:id="@+id/editTextTextrepeat"
+        android:id="@+id/passwordRedundancy"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginLeft="15dp"

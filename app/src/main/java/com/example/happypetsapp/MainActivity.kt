@@ -18,7 +18,9 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        //ocultar la barra de suporte
         supportActionBar?.hide()
+        //crear el navhost y el navcontroller
         val navHostFragment = supportFragmentManager.findFragmentById(R.id.FragmetContainerView) as NavHostFragment
         val navController = navHostFragment.navController
         findViewById<BottomNavigationView>(R.id.nav_view).setupWithNavController(navController)

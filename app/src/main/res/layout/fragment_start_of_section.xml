@@ -18,14 +18,15 @@
         android:textStyle="bold" />
 
     <ImageView
-        android:id="@+id/imageView3"
+        android:id="@+id/DisplayPhoto"
         android:layout_width="match_parent"
         android:layout_height="10dp"
         android:layout_weight="50"
-        tools:srcCompat="@drawable/simparica_check_my_dog" />
+        android:src="@drawable/simparica_check_my_dog"/>
+
 
     <EditText
-        android:id="@+id/editTextTextPersonName"
+        android:id="@+id/mail"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginLeft="15dp"
@@ -36,11 +37,11 @@
         android:drawableLeft="@drawable/user4"
         android:drawablePadding="10dp"
         android:ems="10"
-        android:inputType="textPersonName"
+        android:inputType="textEmailAddress"
         android:text="@string/user" />
 
     <EditText
-        android:id="@+id/editTextTextPassword"
+        android:id="@+id/password"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginLeft="15dp"
@@ -62,7 +63,7 @@
         android:orientation="horizontal">
 
         <Button
-            android:id="@+id/button2"
+            android:id="@+id/LoginButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="25dp"
@@ -85,14 +86,6 @@
             android:text="@string/toreturn" />
     </LinearLayout>
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="@string/registrar"
-        android:textStyle="bold" />
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -100,23 +93,6 @@
         android:layout_weight="20"
         android:orientation="horizontal"
 
-        >
-
-        <ImageButton
-            android:id="@+id/imageButton"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_margin="5dp"
-            android:translationX="140dp"
-            tools:srcCompat="@drawable/google" />
-
-        <ImageButton
-            android:id="@+id/imageButton2"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_margin="5dp"
-            android:translationX="150dp"
-            tools:srcCompat="@drawable/face" />
-    </LinearLayout>
+        />
 
 </LinearLayout>

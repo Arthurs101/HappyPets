@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "771610374148",
+    "project_id": "happy-pets-d5552",
+    "storage_bucket": "happy-pets-d5552.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:771610374148:android:abfa76753264fad5544551",
+        "android_client_info": {
+          "package_name": "com.example.happypetsapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "771610374148-rfnm6hbs7a5emqfkivlpftnsmg9hbdkm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD8uqRNahDFDrS4axjlEUY1wYwbdMt99j4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "771610374148-rfnm6hbs7a5emqfkivlpftnsmg9hbdkm.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

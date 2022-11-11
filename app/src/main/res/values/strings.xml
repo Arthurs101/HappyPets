@@ -10,8 +10,8 @@
     <string name="hint_search">Buscar Animales,Personas,Lugares</string>
     <string name ="text_button_publish">Publicar</string>
     <string name="hint_publish">¿En que piensas? Escribelo aquí </string>
-	<string name="user">User</string>
-	<string name="password">Password</string>
+	<string name="user">Correo</string>
+	<string name="password">Contraseña</string>
 	<string name="login">Login</string>
 	<string name="toreturn">To Return</string>
 	<string name="registrar">Registration</string>
@@ -24,5 +24,23 @@
 	<string name="sur">surname</string>
 	<string name="repeat">repeat your password</string>
 	<string name="checkin">Check In</string>
+	<string name="info_nombre">Nombre Comun</string>
+	<string name="info_cientifico">Nombre Cientifico</string>
+	<string name="info_diet">Dieta</string>
+	<string name="info_habitad">Hábitad</string>
+	<string name="info_Reino">Reino</string>
+	<string name="info_dominio">Dominio</string>
+	<string name="info_presas">Presas</string>
+	<string name="info_depredador">Depredadores</string>
+	<string name="info_tipo">Tipo</string>
+	<string name="info_lifetime">Esperanza de vida</string>
+	<string name="info_weight">Masa estimada:</string>
+	<string name="info_groupbehave">Comportamiento en grupo</string>
+	<string name="info_tiempogestación">Tiempo de gestación</string>
+	<string name="info_novalue">No value</string>
+	<string name="info_mature">Edad de madurez</string>
+	<string name="info_distinctive">Característica Distintiva</string>
+	<string name="info_ubicaciones">Regiones donde habita</string>
+	<string name="ClientID">771610374148-rfnm6hbs7a5emqfkivlpftnsmg9hbdkm.apps.googleusercontent.com</string>
 
 </resources>

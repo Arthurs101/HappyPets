@@ -18,41 +18,64 @@
         android:textStyle="bold" />
 
     <ImageView
-        android:id="@+id/imageView4"
+        android:id="@+id/searchImage"
         android:layout_width="match_parent"
-        android:layout_height="4dp"
+        android:layout_height="match_parent"
         android:layout_weight="10"
-        tools:srcCompat="@drawable/logoinicio" />
+        android:src="@drawable/logoinicio" />
 
-    <Button
-        android:id="@+id/buttonlog"
-        android:layout_width="356dp"
-        android:layout_height="0dp"
-        android:layout_marginLeft="25dp"
-        android:layout_marginRight="25dp"
-        android:layout_marginBottom="5dp"
-        android:layout_weight="2"
-        android:backgroundTint="@color/teal_200"
-        android:fontFamily="sans-serif"
-        android:text="@string/log"
-        android:textColor="#101010"
-        android:textSize="24sp"
-        android:textStyle="bold" />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="200dp">
 
-    <Button
-        android:id="@+id/button4"
-        android:layout_width="356dp"
-        android:layout_height="0dp"
-        android:layout_marginLeft="25dp"
-        android:layout_marginRight="25dp"
-        android:layout_marginBottom="5dp"
-        android:layout_weight="2"
-        android:backgroundTint="@color/teal_200"
-        android:fontFamily="sans-serif"
-        android:text="@string/regis"
-        android:textColor="#000000"
-        android:textSize="24sp"
-        android:textStyle="bold" />
+        <ImageView
+            android:id="@+id/Google"
+            android:layout_width="wrap_content"
+            android:layout_height="46dp"
+            android:backgroundTint="@color/black"
+            app:layout_constraintBottom_toTopOf="@+id/buttonlog"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.1"
+            app:srcCompat="@drawable/google" />
+
+        <Button
+            android:id="@+id/buttonlog"
+            android:layout_width="356dp"
+            android:layout_height="50dp"
+            android:layout_weight="2"
+            android:backgroundTint="@color/teal_200"
+            android:fontFamily="sans-serif"
+            android:text="@string/log"
+            android:textColor="#101010"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.49"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/button4"
+            android:layout_width="362dp"
+            android:layout_height="53dp"
+            android:layout_weight="2"
+            android:backgroundTint="@color/teal_200"
+            android:fontFamily="sans-serif"
+            android:text="@string/regis"
+            android:textColor="#000000"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.489"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/buttonlog"
+            app:layout_constraintVertical_bias="0.238" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 
 </LinearLayout>
