@@ -1,6 +1,8 @@
 package com.example.happypetsapp
 
+import android.content.Intent
 import android.os.Bundle
+
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
@@ -10,6 +12,7 @@ import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupWithNavController
 import com.example.happypetsapp.databinding.ActivityMainBinding
+
 
 class MainActivity : AppCompatActivity() {
 
@@ -26,5 +29,7 @@ class MainActivity : AppCompatActivity() {
         findViewById<BottomNavigationView>(R.id.nav_view).setupWithNavController(navController)
         val navView: BottomNavigationView = findViewById(R.id.nav_view)
         navController.addOnDestinationChangedListener{_,_, arguments -> navView.isVisible = arguments?.getBoolean("ShowNavView", false) == true}
+
     }
+
 }

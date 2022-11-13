@@ -14,6 +14,9 @@ import com.example.happypetsapp.databinding.FragmentBeginningBinding
 import com.example.happypetsapp.databinding.FragmentCheckinBinding
 import com.example.happypetsapp.ui.home.HomeViewModel
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.auth.ktx.userProfileChangeRequest
+import com.google.firebase.ktx.Firebase
 
 class SignUpFragmet : Fragment()  {
     private var _binding: FragmentCheckinBinding? = null
@@ -39,18 +42,34 @@ class SignUpFragmet : Fragment()  {
         binding.buttonregisters.setOnClickListener {
             val emal = binding.Email.text.toString()
             val password = binding.password.text.toString()
+            val usernname = binding.Username.text.toString()
             if(password.contentEquals(binding.passwordRedundancy.text.toString())){
-                if(emal.isNotBlank() && password.isNotBlank()){
+                if(emal.isNotBlank() && password.isNotBlank() && usernname.isNotBlank()){
                     firebase.createUserWithEmailAndPassword(emal,password).addOnCompleteListener{
                         if(it.isSuccessful){
                             val action = SignUpFragmetDirections.actionSignUpFragmetToNavigationHome()
-                            binding.root.findNavController().navigate(action)
+                            //configurar su username
+                            val user = Firebase.auth.currentUser
+                            val profileUpdates = userProfileChangeRequest {
+                                displayName = usernname
+                            }
+                            user!!.updateProfile(profileUpdates)
+                                .addOnCompleteListener { task ->
+                                    if (task.isSuccessful) {
+                                        binding.root.findNavController().navigate(action)
+                                    }else{
+                                        alert("No se pudo Completar el Registro: No se pudo configurar Nombre de Usuario")
+                                    }
+                                }
+
                         }else{
-                            alert("No se pudo Completar el Registro")
+                            alert("No se pudo Completar el Registro, Error Registrando en Base de datos")
                         }
                     }
 
 
+                }else{
+                    alert("No se pudo Completar el Registro: No deje campos en blanco")
                 }
             }else{
                 Toast.makeText(context,"Las contraseñas no coinciden",Toast.LENGTH_LONG)

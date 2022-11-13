@@ -42,5 +42,6 @@
 	<string name="info_distinctive">Característica Distintiva</string>
 	<string name="info_ubicaciones">Regiones donde habita</string>
 	<string name="ClientID">771610374148-rfnm6hbs7a5emqfkivlpftnsmg9hbdkm.apps.googleusercontent.com</string>
+	<string name="hint_addDescription">Agrega una Descripción</string>
 
 </resources>
