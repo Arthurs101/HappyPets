@@ -17,10 +17,13 @@ class SearchFragment : Fragment() {
     private var _binding : FragmentSearchBinding? = null
     private val binding get() = _binding!!
     private lateinit var recyclerView: RecyclerView
+    private lateinit var adapter: SearchAdapter
 
     private val viewmodel : SearchViewModel by activityViewModels {
         SearchViewModelFacotry(AnimalsAPI.service, PhotosApi.service)
     }
+
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -35,8 +38,12 @@ class SearchFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         recyclerView = binding.recyclerView
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
+
+        adapter = SearchAdapter( viewmodel.breeds , viewmodel
+        )
         binding.searchImage.setOnClickListener{
-            recyclerView.adapter = SearchAdapter(viewmodel.searchAnimals(binding.searchText.text.toString()),viewmodel)
+            viewmodel.searchAnimals(binding.searchText.text.toString())
+            adapter.notifyDataSetChanged()
             // This was just for testing -> viewmodel.searchImage(binding.searchText.text.toString())
         }
     }

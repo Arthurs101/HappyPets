@@ -17,13 +17,11 @@ import retrofit2.Response
 
 class SearchViewModel(private val Service: AnimalsService, private val ImageService: PhotosService) :ViewModel() {
     //lsita vacía de animales
-    private var breeds: List<Animal>  = listOf()
+     var breeds: List<Animal>  = listOf()
     private var lastSearch:String = ""
-    fun getAnimals(): List<Animal>{
-        return breeds
-    }
 
-    fun searchAnimals(search:String) :List<Animal> {
+
+    fun searchAnimals(search:String)  {
         if(lastSearch.lowercase() != search.lowercase()){
             val apianswer = Service.getSearch(search)
             apianswer.enqueue(object: Callback<List<Animal>>{
@@ -49,7 +47,7 @@ class SearchViewModel(private val Service: AnimalsService, private val ImageServ
             }
             )
         }
-        return breeds
+
     }
     fun searchImage(search: String): String{
         var photo = photo(link(""))

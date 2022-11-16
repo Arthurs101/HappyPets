@@ -2,6 +2,7 @@ package com.example.happypetsapp.Services.Firebase
 
 import android.net.Uri
 import android.util.Log
+import com.example.happypetsapp.Publish.PublishViewModel
 import com.example.happypetsapp.models.PublicationModel
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.ktx.auth
@@ -34,17 +35,44 @@ object FirebaseSingleton {
         }
         return "Failure, User is null"
     }
-     fun uploadImage(imageUri: Uri) : String{
-         val storageReference = FirebaseStorage.getInstance().getReference("images").child(User!!.displayName!!).child(Calendar.getInstance().time.toString()).putFile(imageUri)
-         var message = ""
-         storageReference.addOnCompleteListener{
-             if(it.isSuccessful){
-                 message = "Succes"
-             }else{
-                 Log.d("failure Image" , "I dunno Why")
+     fun uploadImage(imageUri: Uri, vim: PublishViewModel) {
+         val ref = FirebaseStorage.getInstance().getReference("images").child(User!!.displayName!!).child(User!!.uid).child(Calendar.getInstance().time.toString())
+         val uploadTask = ref.putFile(imageUri)
+
+         val urlTask = uploadTask.continueWithTask { task ->
+             if (!task.isSuccessful) {
+                 task.exception?.let {
+                     throw it
+                 }
+             }
+             ref.downloadUrl
+         }.addOnCompleteListener { task ->
+             if (task.isSuccessful) {
+                 val downloadUri = task.result
+                 vim.temporalPublicationModel.publicationImageRef = downloadUri.toString()
+             } else {
+                 // Handle failures
+                 // ...
              }
          }
-         return message
 
      }
+    fun uploadPublication(pub: PublicationModel){
+        class privatePub(
+            val content: String,
+            val imageref: String
+        ){
+
+        }
+        //global
+        RealTimeData.child("publications").child("global").push().setValue(pub)
+        // privateForUsers
+        RealTimeData.child("publications").child(pub.username).push().setValue(privatePub(pub.description,pub.publicationImageRef))
+
+    }
+
+    fun uploadAlert(pub: PublicationModel) {
+        RealTimeData.child("alerts").child("global").push().setValue(pub)
+
+    }
 }
