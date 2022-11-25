@@ -39,6 +39,7 @@ class SearchAdapter( private val ModelView: SearchViewModel) : RecyclerView.Adap
             val action = SearchFragmentDirections.actionNavigationBuscarToBreedInfoFragment(item)
             holder.binding.root.findNavController().navigate(action)
         }
+
     }
 
     override fun getItemCount(): Int {

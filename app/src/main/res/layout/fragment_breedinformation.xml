@@ -98,7 +98,7 @@
         app:layout_constraintVertical_bias="0.017" />
 
     <TextView
-        android:id="@+id/textView6"
+        android:id="@+id/Label6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="28dp"
@@ -120,8 +120,8 @@
         app:layout_constraintBottom_toBottomOf="@+id/predators"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/textView6"
-        app:layout_constraintTop_toBottomOf="@+id/textView6"
+        app:layout_constraintStart_toStartOf="@+id/Label6"
+        app:layout_constraintTop_toBottomOf="@+id/Label6"
         app:layout_constraintVertical_bias="0.0" />
 
     <TextView
@@ -131,7 +131,7 @@
         android:text="@string/info_presas"
         android:textStyle="bold|italic"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/textView6"
+        app:layout_constraintEnd_toStartOf="@+id/Label6"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/textView5"
         app:layout_constraintTop_toBottomOf="@+id/predators"
@@ -158,7 +158,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/textView6"
+        app:layout_constraintStart_toStartOf="@+id/Label6"
         app:layout_constraintTop_toBottomOf="@+id/diet"
         app:layout_constraintVertical_bias="0.017" />
 

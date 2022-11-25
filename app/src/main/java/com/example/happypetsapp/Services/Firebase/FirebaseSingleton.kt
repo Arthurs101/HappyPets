@@ -4,6 +4,8 @@ import android.net.Uri
 import android.util.Log
 import com.example.happypetsapp.Publish.PublishViewModel
 import com.example.happypetsapp.models.PublicationModel
+import com.example.happypetsapp.models.privatePub
+import com.example.happypetsapp.ui.PetDisplayDatabase
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.database.ktx.database
@@ -50,7 +52,7 @@ object FirebaseSingleton {
          }.addOnCompleteListener { task ->
              if (task.isSuccessful) {
                  val downloadUri = task.result
-                 vim.temporalPublicationModel.publicationImageRef = downloadUri.toString()
+                 vim.temporalPublicationModel!!.publicationImageRef = downloadUri.toString()
              } else {
                  // Handle failures
                  // ...
@@ -58,13 +60,58 @@ object FirebaseSingleton {
          }
 
      }
-    fun uploadPublication(pub: PublicationModel){
-        class privatePub(
-            val content: String,
-            val imageref: String
-        ){
+    fun uploadImage(imageUri: Uri, vim: PetDisplayDatabase) {
+        //subir imagen a firebase Stgorage
 
+        val ref = FirebaseStorage.getInstance().getReference("images").child(User!!.displayName!!).child(User!!.uid).child(Calendar.getInstance().time.toString())
+        val uploadTask = ref.putFile(imageUri)
+        //recuoerar el link de la imagen
+        val urlTask = uploadTask.continueWithTask { task ->
+            if (!task.isSuccessful) {
+                task.exception?.let {
+                    throw it
+                }
+            }
+            ref.downloadUrl
+        }.addOnCompleteListener { task ->
+            if (task.isSuccessful) {
+                val downloadUri = task.result
+                vim.temp.imgref = downloadUri.toString()
+            } else {
+                // Handle failures
+                // ...
+            }
         }
+
+    }
+    fun uploadImage(imageUri: Uri) : String {
+        var urlReference = " "
+        //subir imagen a firebase Stgorage
+
+        val ref = FirebaseStorage.getInstance().getReference("images").child(User!!.displayName!!).child(User!!.uid).child(Calendar.getInstance().time.toString())
+        val uploadTask = ref.putFile(imageUri)
+        //recuoerar el link de la imagen
+        val urlTask = uploadTask.continueWithTask { task ->
+            if (!task.isSuccessful) {
+                task.exception?.let {
+                    throw it
+                }
+            }
+            ref.downloadUrl
+        }.addOnCompleteListener { task ->
+            if (task.isSuccessful) {
+                val downloadUri = task.result
+                urlReference = downloadUri.toString()
+            } else {
+                // Handle failures
+                // ...
+            }
+        }
+        return  urlReference
+
+    }
+    fun uploadPublication(pub: PublicationModel){
+
         //global
         RealTimeData.child("publications").child("global").push().setValue(pub)
         // privateForUsers

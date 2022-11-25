@@ -35,7 +35,7 @@ class BreedInfoFragment : Fragment() {
             binding.DisplayName.text = animal.name
             animal.tax?.let {  binding.DisplayCientific.text =  it.sname}
             animal.details?.let {
-                binding.diet.text = it.diet
+                binding.diet.text= it.diet
                 binding.distinct.text = it.specialf
                 binding.group.text = it.group
                 binding.lifetime.text = it.lspan

@@ -8,6 +8,8 @@
         <entry key="..\:/Universidad/Semestre4/Plataformas_Moviles/HappyPets/HappyPets/app/src/main/res/drawable/ic_home_black_24dp.xml" value="0.2735" />
         <entry key="..\:/Universidad/Semestre4/Plataformas_Moviles/HappyPets/HappyPets/app/src/main/res/drawable/ic_launcher_background.xml" value="0.2735" />
         <entry key="..\:/Universidad/Semestre4/Plataformas_Moviles/HappyPets/HappyPets/app/src/main/res/drawable/ic_notifications_black_24dp.xml" value="0.2735" />
+        <entry key="..\:/Universidad/Semestre4/Plataformas_Moviles/HappyPets/HappyPets/app/src/main/res/drawable/pet.xml" value="0.2445" />
+        <entry key="..\:/Universidad/Semestre4/Plataformas_Moviles/HappyPets/HappyPets/app/src/main/res/drawable/user.xml" value="0.2445" />
         <entry key="..\:/Universidad/Semestre4/Plataformas_Moviles/HappyPets/HappyPets/app/src/main/res/layout/activity_login.xml" value="0.3625" />
         <entry key="..\:/Universidad/Semestre4/Plataformas_Moviles/HappyPets/HappyPets/app/src/main/res/layout/activity_loginhandler.xml" value="0.18541666666666667" />
         <entry key="..\:/Universidad/Semestre4/Plataformas_Moviles/HappyPets/HappyPets/app/src/main/res/layout/activity_main.xml" value="0.25" />
@@ -17,6 +19,7 @@
         <entry key="..\:/Universidad/Semestre4/Plataformas_Moviles/HappyPets/HappyPets/app/src/main/res/layout/fragment_checkin.xml" value="0.18541666666666667" />
         <entry key="..\:/Universidad/Semestre4/Plataformas_Moviles/HappyPets/HappyPets/app/src/main/res/layout/fragment_create_publication.xml" value="0.3614583333333333" />
         <entry key="..\:/Universidad/Semestre4/Plataformas_Moviles/HappyPets/HappyPets/app/src/main/res/layout/fragment_dashboard.xml" value="0.3625" />
+        <entry key="..\:/Universidad/Semestre4/Plataformas_Moviles/HappyPets/HappyPets/app/src/main/res/layout/fragment_doggydata.xml" value="0.5" />
         <entry key="..\:/Universidad/Semestre4/Plataformas_Moviles/HappyPets/HappyPets/app/src/main/res/layout/fragment_feeds.xml" value="0.33" />
         <entry key="..\:/Universidad/Semestre4/Plataformas_Moviles/HappyPets/HappyPets/app/src/main/res/layout/fragment_home.xml" value="0.3625" />
         <entry key="..\:/Universidad/Semestre4/Plataformas_Moviles/HappyPets/HappyPets/app/src/main/res/layout/fragment_notifications.xml" value="0.3625" />
@@ -25,6 +28,7 @@
         <entry key="..\:/Universidad/Semestre4/Plataformas_Moviles/HappyPets/HappyPets/app/src/main/res/layout/fragment_start_of_section.xml" value="0.18541666666666667" />
         <entry key="..\:/Universidad/Semestre4/Plataformas_Moviles/HappyPets/HappyPets/app/src/main/res/layout/fragment_view_publication.xml" value="0.33" />
         <entry key="..\:/Universidad/Semestre4/Plataformas_Moviles/HappyPets/HappyPets/app/src/main/res/layout/fragment_view_userpage.xml" value="0.3625" />
+        <entry key="..\:/Universidad/Semestre4/Plataformas_Moviles/HappyPets/HappyPets/app/src/main/res/layout/item_photo.xml" value="0.30833333333333335" />
         <entry key="..\:/Universidad/Semestre4/Plataformas_Moviles/HappyPets/HappyPets/app/src/main/res/layout/item_publication_layout.xml" value="0.5" />
         <entry key="..\:/Universidad/Semestre4/Plataformas_Moviles/HappyPets/HappyPets/app/src/main/res/layout/item_search.xml" value="0.3614583333333333" />
         <entry key="..\:/Universidad/Semestre4/Plataformas_Moviles/HappyPets/HappyPets/app/src/main/res/layout/item_ubication.xml" value="0.3614583333333333" />

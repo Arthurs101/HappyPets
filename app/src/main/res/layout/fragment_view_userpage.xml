@@ -17,22 +17,25 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/imageView"
+        app:layout_constraintStart_toEndOf="@+id/ProfileImage"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.077" />
+        app:layout_constraintVertical_bias="0.035" />
 
     <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
+        android:id="@+id/ProfileImage"
+        android:layout_width="131dp"
+        android:layout_height="95dp"
+        android:layout_marginTop="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.051"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.026"
-        tools:src="@tools:sample/avatars" />
+        app:layout_constraintVertical_bias="0.027"
+        tools:src="@drawable/happy" />
 
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/Photos"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginTop="8dp"
@@ -40,7 +43,33 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView"
+        app:layout_constraintTop_toBottomOf="@+id/ProfileImage"
         app:layout_constraintVertical_bias="0.0" />
+
+    <ImageView
+        android:id="@+id/Logout"
+        android:layout_width="108dp"
+        android:layout_height="67dp"
+        app:layout_constraintBottom_toTopOf="@+id/Photos"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.716"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_username"
+        app:layout_constraintVertical_bias="0.472"
+        app:srcCompat="@drawable/logout"
+
+        />
+
+    <ImageView
+        android:id="@+id/ImageImporterUser"
+        android:layout_width="38dp"
+        android:layout_height="38dp"
+        app:layout_constraintBottom_toTopOf="@+id/Photos"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.078"
+        app:layout_constraintStart_toEndOf="@+id/ProfileImage"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.966"
+        app:srcCompat="@drawable/imageimporter" />
     <!--Fragment container empleado para visualizar las fotos posteadas por el usario, es decir el recylcer_multipurpose-->
 </androidx.constraintlayout.widget.ConstraintLayout>
