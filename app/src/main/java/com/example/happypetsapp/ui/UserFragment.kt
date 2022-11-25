@@ -14,6 +14,7 @@ import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.happypetsapp.R
 import com.example.happypetsapp.Services.Firebase.FirebaseSingleton
 import com.example.happypetsapp.adapters.HomeAdapter
 import com.example.happypetsapp.adapters.UserImagesAdapter
@@ -29,6 +30,7 @@ import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.ValueEventListener
 import com.google.firebase.database.ktx.getValue
 import com.google.firebase.ktx.Firebase
+import com.squareup.picasso.Picasso
 import java.util.*
 
 class UserFragment : Fragment() {
@@ -68,24 +70,17 @@ class UserFragment : Fragment() {
         binding.Photos.adapter = adapter
 
 
-        FirebaseSingleton.Firebaseauth.currentUser?.photoUrl?.let {
-            val photo = it
-            binding.ProfileImage.setImageURI(photo)
-        }
 
 
         ref.orderByKey().addValueEventListener(object : ValueEventListener {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
-                val temp : MutableList<privatePub> = mutableListOf()
                 for (postSnapshot in dataSnapshot.children) {
                     postSnapshot.getValue<privatePub>()?.let {
                         if(it.imageref.isNotBlank()){
-                            temp.add(it)
+                            Pubs.add(it)
                         }
-
                     }
                 }
-                Pubs = temp
                 Collections.reverse(Pubs)
                 adapter.notifyDataSetChanged()
             }
@@ -107,4 +102,6 @@ class UserFragment : Fragment() {
         super.onDestroyView()
         _binding = null
     }
+
+
 }

@@ -123,4 +123,18 @@ object FirebaseSingleton {
         RealTimeData.child("alerts").child("global").push().setValue(pub)
 
     }
+    fun getauthPhoto(url: String): String{
+        var ref = "."
+        val storageReference = Firebase.storage.getReferenceFromUrl(url)
+        storageReference.downloadUrl
+            .addOnSuccessListener { uri ->
+                val downloadUrl = uri.toString()
+                ref = downloadUrl
+            }
+        return ref
+    }
+    fun getPhotoUrl(): String? {
+        val user = Firebase.auth.currentUser
+        return user?.photoUrl?.toString()
+    }
 }

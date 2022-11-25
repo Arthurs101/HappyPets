@@ -50,7 +50,8 @@ class AlertsFragment: Fragment() {
         adapter = HomeAdapter(Pubs)
         binding.MainRecylcerView.layoutManager = manager
         binding.MainRecylcerView.adapter = adapter
-
+        var temp : MutableList<PublicationModel> = mutableListOf()
+        //detectar cualquier cambio en las publicaciones: Añadidos
         //detectar cualquier cambio en las publicaciones: Añadidos
         ref.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
@@ -62,6 +63,7 @@ class AlertsFragment: Fragment() {
                 Collections.reverse(Pubs)
                 adapter.notifyDataSetChanged()
             }
+
 
             override fun onCancelled(databaseError: DatabaseError) {
                 // Getting Post failed, log a message

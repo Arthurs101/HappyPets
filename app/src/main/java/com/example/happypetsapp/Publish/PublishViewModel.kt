@@ -8,13 +8,12 @@ import com.example.happypetsapp.models.PublicationModel
 class PublishViewModel : ViewModel() {
     var publication: Boolean = false //enviar al feed de publicacion
     val temporalPublicationModel =
-        FirebaseSingleton.getUser()?.photoUrl?.let { FirebaseSingleton.uploadImage(it) }?.let {
             PublicationModel (
-                it,
+                FirebaseSingleton.getPhotoUrl(),
             "",
             "",
             FirebaseSingleton.getUser()?.displayName?.toString().toString())
-        }
+
     fun setRef(uri: String){
         temporalPublicationModel!!.publicationImageRef = uri
     }

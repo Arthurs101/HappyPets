@@ -14,6 +14,7 @@ import com.example.happypetsapp.Services.Firebase.FirebaseSingleton
 import com.example.happypetsapp.adapters.HomeAdapter
 import com.example.happypetsapp.databinding.FragmentFeedsBinding
 import com.example.happypetsapp.databinding.FragmentRecyclerMultiuseBinding
+import com.example.happypetsapp.models.PetModel
 import com.example.happypetsapp.models.PublicationModel
 import com.firebase.ui.database.FirebaseRecyclerOptions
 import com.google.firebase.database.ChildEventListener
