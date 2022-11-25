@@ -1,11 +1,14 @@
 package com.example.happypetsapp.Login.Fragments
 
+import android.app.Activity
 import android.app.AlertDialog
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.example.happypetsapp.databinding.FragmentStartOfSectionBinding
@@ -20,6 +23,7 @@ import com.google.android.gms.auth.api.identity.BeginSignInRequest
 import com.google.android.gms.auth.api.identity.Identity
 import com.google.android.gms.auth.api.identity.SignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignIn
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.common.api.ApiException
@@ -38,6 +42,31 @@ class MainFragment : Fragment() {
     private lateinit var goglesign: GoogleSignInClient
     private var auth = FirebaseSingleton.Firebaseauth
 
+    private val launcher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
+        result ->
+        if (result.resultCode == Activity.RESULT_OK){
+            val task = GoogleSignIn.getSignedInAccountFromIntent(result.data)
+            if(task.isSuccessful){
+                val account: GoogleSignInAccount? = task.result
+                account?.let {
+                    val credential = GoogleAuthProvider.getCredential(account.idToken,null)
+                    auth.signInWithCredential(credential).addOnCompleteListener{
+                        if (it.isSuccessful){
+                            MainFragmentDirections.actionMainFragmentToNavigationHome()
+                        }
+                    }
+                }
+
+            }else{
+                Log.d("FAILEDTOLAUNCHINTENT", task.exception.toString())
+            }
+
+        }
+        else{
+            Log.d("FAILEDTOaction",result.resultCode.toString())
+        }
+
+    }
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -49,6 +78,7 @@ class MainFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        auth.signOut()
         super.onViewCreated(view, savedInstanceState)
         binding.buttonlog.setOnClickListener {
             val action = MainFragmentDirections.actionMainFragmentToLoginFragment()
@@ -59,46 +89,18 @@ class MainFragment : Fragment() {
             binding.root.findNavController().navigate(action)
         }
         binding.Google.setOnClickListener{
+
             val gsin = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestIdToken(getString(R.string.ClientID))
                 .requestEmail()
                 .build()
             val googleSignIn = GoogleSignIn.getClient(findNavController().context,gsin)
-            googleSignIn.signOut() //cerrar sesión de cualquier Cuenta de Google que haya quedado abierta
-            startActivityForResult(googleSignIn.signInIntent,GOOGLE_SIGN)
-
+            launcher.launch( googleSignIn.signInIntent )
         }
     }
 
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-        if(requestCode == GOOGLE_SIGN){
-            val task = GoogleSignIn.getSignedInAccountFromIntent(data)
-            val account = task.getResult(ApiException::class.java)
-
-            account?.let {
-                try {
-                    val credential = GoogleAuthProvider.getCredential(it.idToken, null)
-                    FirebaseSingleton.Firebaseauth.signInWithCredential(credential)
-                        .addOnCompleteListener {
-                            if (it.isSuccessful) {
-                                val action =
-                                    MainFragmentDirections.actionMainFragmentToNavigationHome()
-                                binding.root.findNavController().navigate(action)
-                            } else {
-                                alert("No se pudo Completar el Registro")
-                            }
-                        }
-                }catch (e : ApiException){
-                    alert(e.toString())
-                }
-
-            }
 
 
-
-        }
-    }
 
     private fun alert(s: String) {
         val builder = AlertDialog.Builder(context)

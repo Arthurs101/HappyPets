@@ -12,8 +12,9 @@ import com.example.happypetsapp.search.SearchFragmentDirections
 import com.example.happypetsapp.search.SearchViewModel
 import com.squareup.picasso.Picasso
 
-class SearchAdapter(private var Animals: List<Animal> , private val ModelView: SearchViewModel) : RecyclerView.Adapter<SearchAdapter.SearchHolder>() {
-inner class SearchHolder(val binding: ItemSearchBinding) : RecyclerView.ViewHolder(binding.root){
+class SearchAdapter( private val ModelView: SearchViewModel) : RecyclerView.Adapter<SearchAdapter.SearchHolder>() {
+    private var Animals: List<Animal> = listOf()
+    inner class SearchHolder(val binding: ItemSearchBinding) : RecyclerView.ViewHolder(binding.root){
     var photoref = binding.breedphoto
     var name = binding.breedname
 }
@@ -41,7 +42,6 @@ inner class SearchHolder(val binding: ItemSearchBinding) : RecyclerView.ViewHold
     }
 
     override fun getItemCount(): Int {
-        ModelView.SavingFotosFromAdapter(Animals)
         return Animals.size
     }
     fun updatedata(list: List<Animal>){

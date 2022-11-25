@@ -6,8 +6,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.happypetsapp.Services.Api.information.Animal
 import com.example.happypetsapp.Services.Api.information.AnimalsAPI
 import com.example.happypetsapp.Services.Api.photos.PhotosApi
 import com.example.happypetsapp.adapters.SearchAdapter
@@ -38,12 +40,16 @@ class SearchFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         recyclerView = binding.recyclerView
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
+        adapter = SearchAdapter( viewmodel )
+        recyclerView.adapter = adapter
+        val breedsObserver = Observer<List<Animal>> { newValue ->
+            adapter.updatedata(newValue)
 
-        adapter = SearchAdapter( viewmodel.breeds , viewmodel
-        )
+        }
+
+        viewmodel.breeds.observe(viewLifecycleOwner , breedsObserver)
         binding.searchImage.setOnClickListener{
             viewmodel.searchAnimals(binding.searchText.text.toString())
-            adapter.notifyDataSetChanged()
             // This was just for testing -> viewmodel.searchImage(binding.searchText.text.toString())
         }
     }

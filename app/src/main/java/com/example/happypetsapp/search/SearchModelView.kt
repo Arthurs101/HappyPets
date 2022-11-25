@@ -2,9 +2,7 @@ package com.example.happypetsapp.search
 
 
 import android.util.Log
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.createSavedStateHandle
+import androidx.lifecycle.*
 import androidx.lifecycle.viewmodel.CreationExtras
 import com.example.happypetsapp.Services.Api.information.Animal
 import com.example.happypetsapp.Services.Api.information.AnimalsAPI
@@ -17,7 +15,9 @@ import retrofit2.Response
 
 class SearchViewModel(private val Service: AnimalsService, private val ImageService: PhotosService) :ViewModel() {
     //lsita vacía de animales
-     var breeds: List<Animal>  = listOf()
+    private val _breeds = MutableLiveData<List<Animal>>(listOf())
+    val breeds: LiveData<List<Animal>> get() =_breeds
+
     private var lastSearch:String = ""
 
 
@@ -31,15 +31,15 @@ class SearchViewModel(private val Service: AnimalsService, private val ImageServ
                 ) {
                     if(response.isSuccessful){
                         val animals = response.body()
-                        animals?.let {
-                            breeds = animals
+                        animals?.let { animals ->
+                           _breeds.value = animals
                             Log.d("Animals: ", "${breeds.toString()}")
                         }
                     }
                 }
 
                 override fun onFailure(call: Call<List<Animal>>, t: Throwable) {
-                    breeds = listOf()
+                    _breeds.value = listOf()
                     Log.d("Failed to get animals", "${t.toString()}")
 
                 }
@@ -80,7 +80,7 @@ class SearchViewModel(private val Service: AnimalsService, private val ImageServ
     }
 
 fun SavingFotosFromAdapter(withimage: List<Animal>){
-    breeds = withimage
+    _breeds.value = withimage
 }
 
 }

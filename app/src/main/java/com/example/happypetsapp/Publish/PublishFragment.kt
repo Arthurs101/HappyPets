@@ -17,6 +17,7 @@ import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import com.example.happypetsapp.R
@@ -61,6 +62,7 @@ class PublishFragment :Fragment() {
                 Toast.makeText(context, "Elija una opción", Toast.LENGTH_SHORT)
             }
 
+            findNavController().popBackStack()
         }
         binding.radioGroup.setOnCheckedChangeListener { radioGroup, checkedId ->
             when(checkedId){

@@ -36,9 +36,10 @@ object FirebaseSingleton {
         return "Failure, User is null"
     }
      fun uploadImage(imageUri: Uri, vim: PublishViewModel) {
+         //subir imagen a firebase Stgorage
          val ref = FirebaseStorage.getInstance().getReference("images").child(User!!.displayName!!).child(User!!.uid).child(Calendar.getInstance().time.toString())
          val uploadTask = ref.putFile(imageUri)
-
+        //recuoerar el link de la imagen
          val urlTask = uploadTask.continueWithTask { task ->
              if (!task.isSuccessful) {
                  task.exception?.let {

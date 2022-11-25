@@ -2,6 +2,7 @@ package com.example.happypetsapp.Login.Fragments
 
 import android.app.AlertDialog
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -16,6 +17,9 @@ import com.example.happypetsapp.ui.home.HomeViewModel
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.auth.ktx.userProfileChangeRequest
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.ValueEventListener
 import com.google.firebase.ktx.Firebase
 
 class SignUpFragmet : Fragment()  {
@@ -40,27 +44,45 @@ class SignUpFragmet : Fragment()  {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.buttonregisters.setOnClickListener {
+            //obtener textos ingresados en las inputs
             val emal = binding.Email.text.toString()
             val password = binding.password.text.toString()
             val usernname = binding.Username.text.toString()
-            if(password.contentEquals(binding.passwordRedundancy.text.toString())){
+            if(password.contentEquals(binding.passwordRedundancy.text.toString())){ //ver que las contraseñas coincidan en las dos inputs de contraseña
                 if(emal.isNotBlank() && password.isNotBlank() && usernname.isNotBlank()){
                     firebase.createUserWithEmailAndPassword(emal,password).addOnCompleteListener{
-                        if(it.isSuccessful){
+                        if(it.isSuccessful){ //si se pudo guardar el usuario configurar su nombre
                             val action = SignUpFragmetDirections.actionSignUpFragmetToNavigationHome()
                             //configurar su username
+
                             val user = Firebase.auth.currentUser
-                            val profileUpdates = userProfileChangeRequest {
-                                displayName = usernname
-                            }
-                            user!!.updateProfile(profileUpdates)
-                                .addOnCompleteListener { task ->
-                                    if (task.isSuccessful) {
-                                        binding.root.findNavController().navigate(action)
+                            val temp = FirebaseSingleton.RealTimeData.child("users")
+                            temp.orderByChild("username").equalTo(usernname).addValueEventListener(object : ValueEventListener{
+                                override fun onDataChange(snapshot: DataSnapshot) {
+                                    if(snapshot.exists()){
+                                        alert("Usuario tomado")
                                     }else{
-                                        alert("No se pudo Completar el Registro: No se pudo configurar Nombre de Usuario")
+                                        val profileUpdates = userProfileChangeRequest {
+                                            displayName = usernname
+
+                                        }
+                                        user!!.updateProfile(profileUpdates)
+                                            .addOnCompleteListener { task ->
+                                                if (task.isSuccessful) {
+                                                    binding.root.findNavController().navigate(action)
+                                                }else{
+                                                    alert("No se pudo Completar el Registro: No se pudo configurar Nombre de Usuario")
+                                                }
+                                            }
                                     }
                                 }
+
+                                override fun onCancelled(error: DatabaseError) {
+                                    Log.d("ImmaCRy", "Failed")
+                                }
+
+                            })
+
 
                         }else{
                             alert("No se pudo Completar el Registro, Error Registrando en Base de datos")

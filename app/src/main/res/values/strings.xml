@@ -3,6 +3,8 @@
     <string name="title_home">Inicio</string>
     <string name="title_publicar">Publicar</string>
     <string name="title_buscar">Buscar</string>
+	<string name="title_pets">Mascotas</string>
+	<string name="title_user">Perfil</string>
     <string name="title_view_publication">Detalles de Publicacion</string>
     <string name="title_alertas">Alertas</string>
     <string name="useranme_place_holder">username</string>

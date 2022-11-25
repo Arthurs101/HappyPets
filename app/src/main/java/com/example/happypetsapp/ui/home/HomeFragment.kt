@@ -6,10 +6,13 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.happypetsapp.R
 import com.example.happypetsapp.Services.Firebase.FirebaseSingleton
 import com.example.happypetsapp.adapters.HomeAdapter
+import com.example.happypetsapp.databinding.FragmentFeedsBinding
 import com.example.happypetsapp.databinding.FragmentRecyclerMultiuseBinding
 import com.example.happypetsapp.models.PublicationModel
 import com.firebase.ui.database.FirebaseRecyclerOptions
@@ -18,6 +21,7 @@ import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.ValueEventListener
 import com.google.firebase.database.ktx.getValue
+import java.util.*
 
 /*
 * @brief:
@@ -26,7 +30,7 @@ import com.google.firebase.database.ktx.getValue
 * */
 class HomeFragment : Fragment() {
 
-    private var _binding: FragmentRecyclerMultiuseBinding? = null
+    private var _binding: FragmentFeedsBinding? = null
     private val ref = FirebaseSingleton.RealTimeData.child("publications").child("global")
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -41,7 +45,7 @@ class HomeFragment : Fragment() {
     ): View {
         val homeViewModel =
             ViewModelProvider(this).get(HomeViewModel::class.java)
-        _binding = FragmentRecyclerMultiuseBinding.inflate(inflater, container, false)
+        _binding = FragmentFeedsBinding.inflate(inflater, container, false)
         val root: View = binding.root
         return root
     }
@@ -55,13 +59,14 @@ class HomeFragment : Fragment() {
         binding.MainRecylcerView.adapter = adapter
 
         //detectar cualquier cambio en las publicaciones: Añadidos
-        ref.addValueEventListener(object : ValueEventListener {
+        ref.orderByKey().addValueEventListener(object : ValueEventListener {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
                 for (postSnapshot in dataSnapshot.children) {
                     postSnapshot.getValue<PublicationModel>()?.let {
                         Pubs.add(it)
                     }
                 }
+                Collections.reverse(Pubs)
                 adapter.notifyDataSetChanged()
             }
 
@@ -71,10 +76,11 @@ class HomeFragment : Fragment() {
                 // ...
             }
         })
-
-
-
-
+        binding.newPublication.setOnClickListener {
+            val action = HomeFragmentDirections.actionNavigationHomeToNavigationPublicar()
+            findNavController().navigate(action)
+        }
+        binding.PageTitle.text = getString(R.string.title_home)
     }
 
     override fun onDestroyView() {

@@ -7,20 +7,24 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.happypetsapp.R
 import com.example.happypetsapp.Services.Firebase.FirebaseSingleton
 import com.example.happypetsapp.adapters.HomeAdapter
+import com.example.happypetsapp.databinding.FragmentFeedsBinding
 import com.example.happypetsapp.databinding.FragmentRecyclerMultiuseBinding
 import com.example.happypetsapp.models.PublicationModel
+import com.example.happypetsapp.ui.home.HomeFragmentDirections
 import com.example.happypetsapp.ui.home.HomeViewModel
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.ValueEventListener
 import com.google.firebase.database.ktx.getValue
+import java.util.*
 
 class AlertsFragment: Fragment() {
-    private var _binding: FragmentRecyclerMultiuseBinding? = null
-
+    private var _binding: FragmentFeedsBinding? = null
     // This property is only valid between onCreateView and
     // onDestroyView.
     private val binding get() = _binding!!
@@ -35,7 +39,7 @@ class AlertsFragment: Fragment() {
     ): View {
         val NotificationsViewModel =
             ViewModelProvider(this).get(HomeViewModel::class.java)
-        _binding = FragmentRecyclerMultiuseBinding.inflate(inflater, container, false)
+        _binding = FragmentFeedsBinding.inflate(inflater, container, false)
         val root: View = binding.root
         return root
     }
@@ -55,6 +59,7 @@ class AlertsFragment: Fragment() {
                         Pubs.add(it)
                     }
                 }
+                Collections.reverse(Pubs)
                 adapter.notifyDataSetChanged()
             }
 
@@ -64,6 +69,12 @@ class AlertsFragment: Fragment() {
                 // ...
             }
         })
+        binding.newPublication.setOnClickListener {
+            val action = AlertsFragmentDirections.actionNavigationAlertasToNavigationPublicar()
+            findNavController().navigate(action)
+        }
+        binding.PageTitle.text = getString(R.string.title_alertas)
+
     }
     override fun onDestroyView() {
         super.onDestroyView()

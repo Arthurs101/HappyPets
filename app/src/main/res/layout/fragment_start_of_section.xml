@@ -37,8 +37,8 @@
         android:drawableLeft="@drawable/user4"
         android:drawablePadding="10dp"
         android:ems="10"
-        android:inputType="textEmailAddress"
-        android:text="@string/user" />
+        android:hint="@string/user"
+        android:inputType="textEmailAddress" />
 
     <EditText
         android:id="@+id/password"
